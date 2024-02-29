@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .groove{border-style:groove;border-width:10px;border-color:red}
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: black;
+}
+
+.header {
+  padding: 2px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} 
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+th,td{
+  padding:5px 50px;
+}
+.btn{
+  padding:5px;
+  margingin:5px;
+  width:100px
+  height:200px;
+  background-color:green;
+}
+#kk{
+  color:green;
+}
+
+
+.homebutton {
+  right: 0px;
+  width: 125px;
+  padding-top: 20px;
+  padding-em;
+  border: 1px solid #c2c7cc;
+  font-family: 'Open-Sans', sans-serright: 20px;
+  position: fixed;
+  z-index: 2;}
+
+.homebutton a {
+  display: block;
+  margin-bottom: 1em;
+  padding: 0.3em 1.25if;
+  font-size: 1.1em;
+  line-height: 1.667em;
+  text-decoration: none;
+  color: #8a9199;
+  cursor: pointer;
+  background: #fff;
+  transition: color,border-color ease 0.3s;
+  border-radius: 2em;
+}
+.homebutton a:hover {
+  border-color: #42B6F3;
+  color: #42B6F3;
+  text-decoration: none;
+}
+#kkr{
+  background-color:#BDB76B;
+
+}
+
+</style>
+</head>
+<body class="groove">
+
+<div class="header">
+  <h2>Interview Applyers</h2>
+  <div class="homebutton">
+    
+  <a style="text-decoration: none; color: black;" href="/main" >
+    <button class="btn"> Home button</button></a>
+  </div>
+  
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+
+    <center>
+    {% for post in posts reversed %}
+    <div class="card">
+      
+
+       <table id="kkr" border=1>
+        <tr>
+          <td><h3>Firstname : </h3></td>
+        <td>{{post.firstname}}</td>
+        </tr>
+        <tr>
+          <td><h3>Lastname  :</h3></td>
+        <td>{{post.lastname}}</td>
+        </tr>
+        <tr>
+          <td><h3>Employeeid :</h3></td>
+       <td> {{post.employeeid}}</td>
+        </tr>
+        <tr>
+          <td><h3>City : </h3></td>
+          <td>{{post.city}}</td>
+        </tr>
+        <tr>
+          <td><h3>State : </h3></td>
+          <td>{{post.state}}</td>
+        </tr>
+        <tr>
+          <td><h3>Zip Code : </h3></td>
+          <td>{{post.zip}}</td>
+        </tr>
+        <tr>
+          <td><h3>Email Address : </h3></td>
+          <td>{{post.email}}</td>
+        </tr>
+        <tr>
+          <td><h3>Current-Salary : </h3></td>
+          <td>{{post.current_salary}}</td>
+        </tr>
+        <tr>
+          <td><h3>Expected-Salary : </h3></td>
+          <td>{{post.expected_salary}}</td>
+        </tr>
+        <tr>
+          <td><h3>Current-Domain : </h3></td>
+          <td>{{post.current_domain}}</td>
+        </tr>
+        <tr>
+          <td><h3>Change-Domain: </h3></td>
+          <td>{{post.change_domain}}</td>
+        </tr>
+        <tr>
+          <td><h3>Skills : </h3></td>
+          <td>{{post.skills}}</td>
+        </tr>
+
+      </table>
+    </br>
+
+<h6 id="kk">Note This Above Email Address And Send Response To That Particular Email</h6>
+
+      <a style="text-decoration: none; color: black;" href="response/{{post.id}}" >
+        <button class="btn"> For response click here</button>
+
+      </a>
+    </div>
+    {% endfor %}
+  </center>
+  </div>
+</div>
+
+</body>
+</html>
